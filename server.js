@@ -10,7 +10,7 @@ var fs = require('fs');
 var path = require('path');
 var schedule = require('node-schedule');
 
-schedule.scheduleJob('0 0 * * *', function() {
+schedule.scheduleJob('12 2 * * *', function() {
   console.log('Running plugin updater...');
   try {
     require('./grunt-plugins').download();
@@ -111,6 +111,11 @@ app.get('/blog*', function (req, res, next) {
 // plugins route
 app.get('/plugins*', function (req, res) {
   res.sendFile('build/plugins.html', {root: __dirname});
+});
+
+// blm route
+app.get('/blm*', function (req, res) {
+  res.sendFile('build/blm.html', {root: __dirname});
 });
 
 // rss atom feed

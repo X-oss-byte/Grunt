@@ -83,8 +83,14 @@ module.exports = function(grunt) {
 
     uglify: {
       options: {
-        sourceMap: true,
-        sourceMapIncludeSources: true
+        compress: true,
+        mangle: true,
+        output: {
+          comments: false
+        },
+        sourceMap: {
+          includeSources: true
+        }
       },
       plugins: {
         src: [
@@ -140,7 +146,7 @@ module.exports = function(grunt) {
           required: false,
           trailingSlash: false
         },
-        homepage: 'http://gruntjs.com/',
+        homepage: 'https://gruntjs.com/',
         pattern: ['build/**/*.html'],
         siteRoot: './build'
       }
@@ -175,12 +181,20 @@ module.exports = function(grunt) {
     },
 
     htmllint: {
-      options: {
-        ignore: [
-          'Attribute "color" not allowed on element "link" at this point.'
-        ]
-      },
       src: 'build/**/*.html'
+    },
+
+    pug: {
+      compile: {
+        options: {
+          data: {
+            debug: false
+          }
+        },
+        files: {
+          'build/blm.html': ['src/tmpl/blm.pug']
+        }
+      }
     }
 
   });
@@ -194,6 +208,7 @@ module.exports = function(grunt) {
     'copy',
     'docs',
     'blog',
+    'pug',
     'plugins',
     'uglify',
     'sitemap'

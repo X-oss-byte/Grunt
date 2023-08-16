@@ -1,6 +1,6 @@
 /*
  * grunt blog, rss, index pages
- * http://gruntjs.com/
+ * https://gruntjs.com/
  *
  * Copyright (c) 2013 grunt contributors
  * Licensed under the MIT license.
@@ -91,7 +91,7 @@ module.exports = function (grunt) {
     /**
      * Generate the blog page with a list of posts
      */
-    grunt.log.ok('Generating blog front page..');
+    grunt.log.ok('Generating blog front page...');
     // remove anchors from blog.html page
     marked.setOptions({
       anchors: false
